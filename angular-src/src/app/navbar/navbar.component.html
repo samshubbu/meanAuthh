@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">MeanAuthApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Home </a>
+      </li>
+      <li *ngIf="token" class="nav-item">
+        <a  class="nav-link"  routerLink="/dashboard">Dashboard</a>
+      </li>
+      <li *ngIf="!token" class="nav-item">
+        <a class="nav-link" [routerLinkActive]="['active']" routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="user" class="nav-item">
+        <a class="nav-link"><pre>Hello!! {{ user.name }}</pre></a>
+      </li>
+      <li *ngIf="!token" class="nav-item">
+        <a class="nav-link" [routerLinkActive]="['active']" routerLink="/register">Register</a>
+      </li>
+      <li *ngIf="token" class="nav-item">
+        <a class="nav-link" id="logout" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
